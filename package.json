@@ -12,6 +12,7 @@
     "db:migrate": "bun run src/db/migrate.ts"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@kilocode/app-builder-db": "github:Kilo-Org/app-builder-db#main",
     "bcryptjs": "^3.0.3",
     "drizzle-orm": "^0.45.2",
