@@ -13,11 +13,28 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
+    // Get couple info
+    const coupleResult = await db.select().from(couples).where(eq(couples.id, coupleId)).limit(1);
+    if (coupleResult.length === 0) {
+      return NextResponse.json({ error: 'Couple not found' }, { status: 404 });
+    }
+    const couple = coupleResult[0];
+
     // Get all shared frustrations for this couple that aren't escalated yet
-    const sharedFrustrations = await db
-      .select()
-      .from(frustrations)
-      .where(and(eq(frustrations.shared, true), eq(frustrations.escalated, false)));
+    const partnerUserIds = [];
+    if (couple.user1Id) partnerUserIds.push(couple.user1Id);
+    if (couple.user2Id) partnerUserIds.push(couple.user2Id);
+
+    const sharedFrustrations = partnerUserIds.length > 0
+      ? await db
+          .select()
+          .from(frustrations)
+          .where(and(
+            eq(frustrations.shared, true),
+            eq(frustrations.escalated, false),
+            inArray(frustrations.userId, partnerUserIds)
+          ))
+      : [];
 
     if (sharedFrustrations.length < 2) {
       return NextResponse.json({ error: 'Need frustrations from both partners to escalate' }, { status: 400 });
