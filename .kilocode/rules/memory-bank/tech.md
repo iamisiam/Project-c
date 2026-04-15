@@ -11,6 +11,7 @@
 | Bun          | Latest  | Package manager & runtime       |
 | Drizzle ORM  | 0.45.x  | Database ORM                    |
 | SQLite       | Latest  | Database engine                 |
+| Gemini AI    | Latest  | AI counseling for relationships |
 
 ## Development Environment
 
@@ -63,7 +64,8 @@ bun typecheck      # Run TypeScript type checking
   "react": "^19.2.3", // UI library
   "react-dom": "^19.2.3", // React DOM
   "@kilocode/app-builder-db": "github:Kilo-Org/app-builder-db#main", // Database client
-  "drizzle-orm": "^0.45.2" // ORM
+  "drizzle-orm": "^0.45.2", // ORM
+  "@google/generative-ai": "^0.24.1" // Gemini AI
 }
 ```
 

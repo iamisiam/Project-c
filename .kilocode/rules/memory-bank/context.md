@@ -16,6 +16,9 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
 - [x] Recipe system for common features
 - [x] Added database support with Drizzle ORM + SQLite
 - [x] Designed database schema for users, couples, quizzes, photos, frustrations, calendar, dictionary
+- [x] Added authentication system with JWT
+- [x] Created main workspace layout with feature blocks
+- [x] Implemented frustrations feature with AI counseling using Gemini
 
 ## Current Structure
 
