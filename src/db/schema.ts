@@ -10,8 +10,9 @@ export const users = sqliteTable("users", {
 
 export const couples = sqliteTable("couples", {
   id: integer("id").primaryKey({ autoIncrement: true }),
-  user1Id: integer("user1_id").notNull().references(() => users.id),
-  user2Id: integer("user2_id").notNull().references(() => users.id),
+  user1Id: integer("user1_id").references(() => users.id),
+  user2Id: integer("user2_id").references(() => users.id),
+  invitationCode: text("invitation_code").notNull().unique(),
   createdAt: integer("created_at", { mode: "timestamp" }).$defaultFn(() => new Date()),
 });
 
