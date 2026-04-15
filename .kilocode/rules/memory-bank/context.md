@@ -19,6 +19,7 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
 - [x] Added authentication system with JWT
 - [x] Created main workspace layout with feature blocks
 - [x] Implemented frustrations feature with AI counseling using Gemini
+- [x] Implemented basic quiz feature with answering and guessing
 
 ## Current Structure
 
@@ -90,4 +91,4 @@ export async function GET() {
 | Date | Changes |
 |------|---------|
 | Initial | Template created with base setup |
-| 2026-04-15 | Added database support for Us couples app |
+| 2026-04-15 | Built Us couples app with database, auth, workspace, frustrations with AI, quiz |
